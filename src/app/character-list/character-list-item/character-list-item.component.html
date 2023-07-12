@@ -1,1 +1,25 @@
-<p>character-list-item works!</p>
+<div class="card">
+    <h5 class="card-header">
+        <span class="status_icon"
+        [ngStyle]="{'background-color': character.status == 'Alive' ? 'rgb(85, 204, 68)' : (character.status == 'Dead' ? 'rgb(214, 61, 46)' : 'lightgrey') }"></span>
+        {{character.status}}
+    </h5>
+    <hr>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xs-2">
+                <img src="{{character.image}}">
+            </div>
+            <div class="col-xs-4">
+                <h3>{{character.name}}</h3>
+                <p>{{character.species}}</p>
+                <p>{{character.gender}}</p>
+            </div>
+            <div class="col-xs-6">
+                <p><b>Last known location:</b> {{character.location.name}}</p>
+                <p><b>Origin:</b> {{character.location.name}}</p>
+                <p>{{character.created | shorten}}</p>
+            </div>
+        </div>
+    </div>
+  </div>

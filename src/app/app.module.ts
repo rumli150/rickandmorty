@@ -10,6 +10,7 @@ import { CharacterListItemComponent } from './character-list/character-list-item
 import { DropdownDirective } from './shared/dropdown.directive';
 import { menuComponentService } from './menu/menu.component.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ShortenPipe } from './shorten.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     CharacterListComponent,
     CharacterListItemComponent,
     DropdownDirective,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,
