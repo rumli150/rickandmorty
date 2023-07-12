@@ -1,0 +1,20 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav">
+                <li class="dropdown" appDropdown #dropdown (click)="onOpen($event)"> 
+                    <a class="dropdown-toggle btn-dark" 
+                        role="button">
+                        Menu <span class="caret caret" 
+                        [ngClass]="menuIsOpen  ? 'caret-down' : 'caret-right'"></span>
+                </a>
+                    <ul class="dropdown-menu">
+                        <li><a style="cursor: pointer;" routerLink="home">Home Page</a></li>
+                        <li><a style="cursor: pointer;" routerLink="characters">Characters Page</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</nav>

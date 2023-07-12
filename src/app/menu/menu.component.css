@@ -1,0 +1,6 @@
+.caret.caret-right {
+    transform: rotate(-90deg);
+  }
+.caret.caret-down {
+    transform: rotate(0deg);
+  }
