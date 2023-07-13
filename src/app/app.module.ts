@@ -11,6 +11,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { menuComponentService } from './menu/menu.component.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ShortenPipe } from './shorten.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,10 @@ import { ShortenPipe } from './shorten.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [menuComponentService],
   bootstrap: [AppComponent]

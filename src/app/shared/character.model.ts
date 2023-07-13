@@ -21,3 +21,18 @@ export class Location{
         public url : string
     ){}
 }
+
+export class Info{
+    constructor(
+        public count : number,
+        public pages : number,
+        public next? : string,
+        public prev? : string,
+    ){}
+}
+export class CharacterList{
+    constructor(
+        public info : Info,
+        public results : Character[]
+    ){}
+}

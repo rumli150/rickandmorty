@@ -7,9 +7,17 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
+        Character count: {{info.count}} - {{info.pages}}/{{page}}
+        <button class="btn btn-primary" [routerLink]="['/characters']" [queryParams]="{page: page-1}" >prev</button>
+        <button class="btn btn-primary" [routerLink]="['/characters']" [queryParams]="{page:+ page+1}" >next</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
         <app-character-list-item 
             *ngFor="let character of characters; let i = index"
             [character]="character"
-            (click)="onSelectItem(i)"></app-character-list-item>
+            (click)="onSelectItem(character)"></app-character-list-item>
     </div>
 </div>
