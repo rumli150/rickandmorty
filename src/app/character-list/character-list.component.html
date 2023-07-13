@@ -1,23 +1,61 @@
-<div class="row">
-    <div class="col-xs-12">
-        <form>
-            <input type="text" placeholder="Név">
-        </form>
+<form>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-3">
+        <input
+          type="email"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="character name"
+        />
+      </div>
+      <div class="col-xs-3">
+          <div class="form-group">
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option value="Not specified">Not specified</option>
+              <option value="Alive">Alive</option>
+              <option value="Dead">Dead</option>
+              <option value="Unknown">Unknown</option>
+            </select>
+          </div>
+      </div>
+      <div class="col-xs-3">
+          <div class="form-group">
+            <button class="btn btn-info" type="submit">Search</button>
+          </div>
+      </div>
     </div>
-</div>
+  </div>
+</form>
+
 <div class="row">
-    <div class="col-xs-12">
-        Character count: {{info.count}} - {{info.pages}}/{{page}}
-        <button class="btn btn-primary" [routerLink]="['/characters']" [queryParams]="{page: page-1}" >prev</button>
-        <button class="btn btn-primary" [routerLink]="['/characters']" [queryParams]="{page:+ page+1}" >next</button>
-    </div>
+  <div class="col-xs-12">
+    Character count: {{ info.count }} - {{ info.pages }}/{{ page }}
+    <button
+      class="btn btn-default"
+      [routerLink]="['/characters']"
+      [queryParams]="{ page: page - 1 }"
+      [disabled]="info.prev == null"
+    >
+      prev
+    </button>
+    <button
+      class="btn btn-default"
+      [routerLink]="['/characters']"
+      [queryParams]="{ page: +page + 1 }"
+      [disabled]="info.next == null"
+    >
+      next
+    </button>
+  </div>
 </div>
 
 <div class="row">
-    <div class="col-xs-12">
-        <app-character-list-item 
-            *ngFor="let character of characters; let i = index"
-            [character]="character"
-            (click)="onSelectItem(character)"></app-character-list-item>
-    </div>
+  <div class="col-xs-12">
+    <app-character-list-item
+      *ngFor="let character of characters; let i = index"
+      [character]="character"
+      (click)="onSelectItem(character)"
+    ></app-character-list-item>
+  </div>
 </div>

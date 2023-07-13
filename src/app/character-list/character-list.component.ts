@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Character, Info, Location } from '../shared/character.model';
 import { DataStorageService } from '../shared/data-storage.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Filter } from '../shared/filter.model';
 
 @Component({
   selector: 'app-character-list',
@@ -10,6 +11,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class CharacterListComponent implements OnInit{
   characters : Character[]
+  filter = new Filter()
   page = 1
   info = new Info(0,0,null,null)
   constructor(
@@ -20,14 +22,22 @@ export class CharacterListComponent implements OnInit{
   ngOnInit(){
     this.route.queryParams.subscribe((params : Params)=>{
       this.page = params['page']
-      // console.log(params)
-      // console.log(this.route)
+      this.filter.name = params['name']
+      this.filter.status = params['status']
+      this.filter.species = params['species']
+      this.filter.type = params['type']
+      this.filter.gender = params['gender']
+      console.log(this.filter)
       console.log(this.page)
+      if(this.page==undefined){
+        this.page = 1
+      }
 
-    this.dataStorageService.getCharactersFromDB(this.page).subscribe((characters) => {
-      console.log(characters)
+    this.dataStorageService.getCharactersFromDB(this.page, this.filter).subscribe((characters) => {
+      // console.log(characters)
       this.characters = characters.results
       this.info = characters.info
+      console.log(params)
     })
     })
     
@@ -35,5 +45,9 @@ export class CharacterListComponent implements OnInit{
 
   onSelectItem(char){
     console.log(char)
+  }
+
+  onSearch(){
+
   }
 }
