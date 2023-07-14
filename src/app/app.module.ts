@@ -13,6 +13,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { ShortenPipe } from './shorten.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CharacterProfileComponent } from './character-list/character-profile/character-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CharacterListItemComponent,
     DropdownDirective,
     ErrorPageComponent,
-    ShortenPipe
+    ShortenPipe,
+    CharacterProfileComponent
   ],
   imports: [
     BrowserModule,

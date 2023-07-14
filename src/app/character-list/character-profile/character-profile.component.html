@@ -1,0 +1,47 @@
+<div
+  class="container card"
+  style="width: 70%; background-color: rgb(59, 59, 59)"
+>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <div class="content">
+          <img src="{{ character.image }}" class="img" />
+          <h1>{{ character.name }}</h1>
+          <h3
+            [ngStyle]="{
+              color:
+                character.status == 'Alive'
+                  ? 'rgb(85, 204, 68)'
+                  : character.status == 'Dead'
+                  ? 'rgb(214, 61, 46)'
+                  : 'lightgrey'
+            }"
+          >
+            {{ character.status }}
+          </h3>
+          <br />
+          <table class="table">
+            <tr>
+              <td>
+                <h3><b>Last known location:</b></h3>
+              </td>
+              <td>
+                <h3>{{ character.location.name }}</h3>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                  <h3><b>Origin location:</b></h3>
+                </td>
+                <td>
+                  <h3>{{ character.origin.name }}</h3>
+                </td>
+              </tr>
+          </table>
+          <p>{{character.created | shorten}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

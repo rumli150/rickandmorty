@@ -49,7 +49,8 @@ export class CharacterListComponent implements OnInit {
   }
 
   onSelectItem(char) {
-    console.log(char);
+    // console.log(char)
+    this.router.navigate(['characters',char.id], { state: { example: 'bar' } })
   }
 
   onSearch() {
@@ -93,4 +94,3 @@ export class CharacterListComponent implements OnInit {
     }
   }
   
-  // {queryParams: {'name' : 'rick', 'status' : 'Alive'} ,queryParamsHandling: 'merge'}

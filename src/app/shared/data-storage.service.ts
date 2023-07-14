@@ -39,4 +39,7 @@ export class DataStorageService {
     {params: myParams}
     )
   }
+  getCharacter(id : number){
+    return this.http.get<Character>('https://rickandmortyapi.com/api/character/'+id)
+  }
 }
