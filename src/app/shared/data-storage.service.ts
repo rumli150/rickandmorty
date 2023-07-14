@@ -22,7 +22,7 @@ export class DataStorageService {
     if(filter.name){
       myParams = myParams.append('name',filter.name)
     }
-    if(filter.status){
+    if(filter.status && filter.status !== 'Not specified'){
       myParams = myParams.append('status',filter.status)
     }
     if(filter.species){
@@ -31,7 +31,7 @@ export class DataStorageService {
     if(filter.type){
       myParams = myParams.append('type',filter.type)
     }
-    if(filter.gender){
+    if(filter.gender && filter.gender !== 'Not specified'){
       myParams = myParams.append('gender',filter.gender)
     }
     
