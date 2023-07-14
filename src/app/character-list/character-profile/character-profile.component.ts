@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Character } from 'src/app/shared/character.model';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { Character, Location } from 'src/app/shared/character.model';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
+import { Filter } from 'src/app/shared/filter.model';
 
 @Component({
   selector: 'app-character-profile',
@@ -9,20 +10,35 @@ import { DataStorageService } from 'src/app/shared/data-storage.service';
   styleUrls: ['./character-profile.component.css']
 })
 export class CharacterProfileComponent implements OnInit{
-  character = new Character(1,'','','','','',null,null,'',null,'','')
+  location = new Location('','')
+  character = new Character(1,'','','','','',this.location,this.location,'',[],'','')
   id : number
+  filter = new Filter();
 
   constructor(
     private dataStorageService: DataStorageService, 
     private router: Router,
     private route : ActivatedRoute
-  ) {} 
+  ) {
+    // console.log(this.router.getCurrentNavigation().extras.state.example)
+  } 
 
   ngOnInit(){
     this.id = this.route.snapshot.params.id
     this.dataStorageService.getCharacter(this.id).subscribe((character)=>{
       this.character = character
     })
+  }
+  onBack(){
+
+    const navigationExtras: NavigationExtras = {
+      queryParams: {},
+      queryParamsHandling: 'merge',
+    }
+
+    this.router.navigate(
+      ['/characters'],
+      navigationExtras)
   }
 
 }

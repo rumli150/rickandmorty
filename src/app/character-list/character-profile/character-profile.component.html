@@ -12,10 +12,8 @@
             [ngStyle]="{
               color:
                 character.status == 'Alive'
-                  ? 'rgb(85, 204, 68)'
-                  : character.status == 'Dead'
-                  ? 'rgb(214, 61, 46)'
-                  : 'lightgrey'
+                  ? 'rgb(85, 204, 68)' : character.status == 'Dead'
+                  ? 'rgb(214, 61, 46)' : 'lightgrey'
             }"
           >
             {{ character.status }}
@@ -40,6 +38,7 @@
               </tr>
           </table>
           <p>{{character.created | shorten}}</p>
+          <button class="btn btn-dark" style="background-color: #292929" (click)="onBack()" >BACK</button>
         </div>
       </div>
     </div>

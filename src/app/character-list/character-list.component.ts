@@ -49,8 +49,34 @@ export class CharacterListComponent implements OnInit {
   }
 
   onSelectItem(char) {
-    // console.log(char)
-    this.router.navigate(['characters',char.id], { state: { example: 'bar' } })
+    // this.router.navigate(['characters',char.id], {queryParams: {name : 'rick'} , state: { example: 'bar' } })
+    let myParams: any = {page: this.page}
+    console.log(this.filter)
+    
+
+    if(this.filter.name){
+      myParams = { ...myParams, name : this.filter.name};
+    }
+    if(this.filter.status !== 'Not specified'){
+      myParams = { ...myParams, status : this.filter.status};
+    }
+    if(this.filter.species){
+      myParams = { ...myParams, species : this.filter.species};
+    }
+    if(this.filter.type){
+      myParams = { ...myParams, type : this.filter.type};
+    }
+    if(this.filter.gender !== 'Not specified'){
+      myParams = { ...myParams, gender : this.filter.gender};
+    }
+
+    const navigationExtras: NavigationExtras = {
+      queryParams: myParams,
+      // queryParamsHandling: 'merge',
+    }
+    this.router.navigate(
+      ['characters',char.id],
+      navigationExtras)
   }
 
   onSearch() {
