@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Character, Info, Location } from '../shared/character.model';
 import { DataStorageService } from '../shared/data-storage.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Params, Router } from '@angular/router';
 import { Filter } from '../shared/filter.model';
 import { NgForm } from '@angular/forms';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-character-list',
@@ -20,7 +21,7 @@ export class CharacterListComponent implements OnInit {
     private dataStorageService: DataStorageService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {}  
 
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
@@ -52,19 +53,44 @@ export class CharacterListComponent implements OnInit {
   }
 
   onSearch() {
-    // this.filter.name = this.myForm.value.name
-    // this.filter.status = this.myForm.value.status
-    // this.filter.species = this.myForm.value.species
-    // this.filter.type = this.myForm.value.type
-    // this.filter.gender = this.myForm.value.gender
-    // console.log(this.filter)
-    // console.log(this.page)
-    // this.dataStorageService.getCharactersFromDB(this.page, this.filter).subscribe((characters) => {
-    //   // console.log(characters)
-    //   this.characters = characters.results
-    //   this.info = characters.info
-    // })
-    // this.router.navigate(['characters', 1])
+    let myParams: any = {}
     
+    if(this.myForm.value.name){
+      myParams = { ...myParams, name : this.myForm.value.name};
+    }
+    if(this.myForm.value.status !== 'Not specified'){
+      myParams = { ...myParams, status : this.myForm.value.status};
+    }
+    if(this.myForm.value.species){
+      myParams = { ...myParams, species : this.myForm.value.species};
+    }
+    if(this.myForm.value.type){
+      myParams = { ...myParams, type : this.myForm.value.type};
+    }
+    if(this.myForm.value.gender !== 'Not specified'){
+      myParams = { ...myParams, gender : this.myForm.value.gender};
+    }
+    
+    const navigationExtras: NavigationExtras = {
+      queryParams: myParams,
+      // queryParamsHandling: 'merge',
+
+
+    };
+
+    this.router.navigate(
+      ['/characters'],
+      navigationExtras)
+      console.log(myParams)
+    }
+    onPrev(){
+      this.router.navigate(['/characters'], 
+      {queryParams: { page : + this.page-1}, queryParamsHandling: 'merge'})
+    }
+    onNext(){
+      this.router.navigate(['/characters'], 
+      {queryParams: { page : + this.page+1}, queryParamsHandling: 'merge'})
+    }
   }
-}
+  
+  // {queryParams: {'name' : 'rick', 'status' : 'Alive'} ,queryParamsHandling: 'merge'}

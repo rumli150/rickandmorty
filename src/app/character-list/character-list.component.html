@@ -71,7 +71,7 @@
     <button
       class="btn btn-default"
       [routerLink]="['/characters']"
-      [queryParams]="{ page: page - 1 }"
+      (click)="onPrev()"
       [disabled]="info.prev == null"
     >
       prev
@@ -79,7 +79,7 @@
     <button
       class="btn btn-default"
       [routerLink]="['/characters']"
-      [queryParams]="{ page: +page + 1 }"
+      (click)="onNext()"
       [disabled]="info.next == null"
     >
       next
