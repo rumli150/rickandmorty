@@ -28,11 +28,6 @@ export class CharacterProfileComponent implements OnInit{
   ngOnInit(){
     this.id = this.route.snapshot.params.id
     this.sub = this.dataStorageService.getCharacter(this.id).subscribe((character)=>{
-      if(character instanceof Character){
-        console.log('YES')
-      }else{
-        console.log('NO')
-      }
       this.character = character
     })
   }

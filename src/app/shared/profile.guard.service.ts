@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Character, CharLocation } from '../character-list/character.model';
 import { DataStorageService } from './data-storage.service';
 
@@ -8,31 +8,32 @@ import { DataStorageService } from './data-storage.service';
   providedIn: 'root'
 })
 export class ProfileGuardService implements CanActivate {
-  location = new CharLocation('','')
-  character = new Character(1,'','','','','',this.location,this.location,'',[],'','')
+  location = new CharLocation('', '')
+  character = new Character(1, '', '', '', '', '', this.location, this.location, '', [], '', '')
 
   constructor(
     private myRoute: ActivatedRoute,
     private router: Router,
     private dataStorage: DataStorageService
-    ) { }
+  ) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    
-    if(this.router.url.toString().includes('/characters')){
-      let id = route.params.id
-      this.dataStorage.getCharacter(id).subscribe((character)=>{
+
+
+    let id = route.params.id
+    let promise = new Promise<boolean>((resolve, reject) => {
+      this.dataStorage.getCharacter(id).subscribe((character) => {
         this.character = character
-        if(this.character.status != 'Alive'){
+      if (this.character.status != 'Alive') {
         alert('Warning: The caracter is dead or unkown')
-        this.router.navigate(['/characters'], {queryParamsHandling : 'merge'})
-        return false
+        this.router.navigate(['/characters'], { queryParamsHandling: 'merge' })
+        resolve(false)
+      } else {
+        resolve(true)
       }
       })
-    }else{
-      alert('nem lehet!')
-      return false
-    }
-    
+    })
+
+    return promise
   }
 
 }
