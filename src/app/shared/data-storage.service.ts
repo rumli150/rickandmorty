@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams} from '@angular/common/http'
-import { Character, CharacterList, Location } from '../character-list/character.model';
+import { Character, CharacterList, CharLocation } from '../character-list/character.model';
 import { CharacterFilter, LocationFilter } from './filter.model';
 import { LocationList } from '../location-list/location.model';
+import { Location } from '../location-list/location.model';
+import { FilterError } from './error.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class DataStorageService {
 
   constructor(private http : HttpClient) { }
 
-  earth = new Location("Earth", "https://rickandmortyapi.com/api/location/1")
+  earth = new CharLocation("Earth", "https://rickandmortyapi.com/api/location/1")
   characters : Character[] = []
 
   getCharacters(){
@@ -51,12 +53,15 @@ export class DataStorageService {
       myParams = myParams.append('name',filter.name)
     }
     if(filter.type){
-      myParams = myParams.append('name',filter.type)
+      myParams = myParams.append('type',filter.type)
     }
     if(filter.dimension){
-      myParams = myParams.append('name',filter.dimension)
+      myParams = myParams.append('dimension',filter.dimension)
     }
     return this.http.get<LocationList>('https://rickandmortyapi.com/api/location',
     {params: myParams})
+  }
+  getLocation(id : number){
+    return this.http.get<Location>('https://rickandmortyapi.com/api/location/'+id)
   }
 }

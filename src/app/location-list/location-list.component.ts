@@ -3,7 +3,7 @@ import { Info } from '../shared/info.model';
 import { Location } from './location.model';
 import { NgForm } from '@angular/forms';
 import { DataStorageService } from '../shared/data-storage.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Params, Router } from '@angular/router';
 import { LocationFilter } from '../shared/filter.model';
 @Component({
   selector: 'app-location-list',
@@ -44,10 +44,52 @@ export class LocationListComponent {
     });
   }
   onSelectItem(location){
-    console.log(location)
+    let myParams: any = {page: this.page}
+    console.log(this.filter)
+    
+
+    if(this.filter.name){
+      myParams = { ...myParams, name : this.filter.name};
+    }
+    if(this.filter.type){
+      myParams = { ...myParams, type : this.filter.type};
+    }
+    if(this.filter.dimension){
+      myParams = { ...myParams, type : this.filter.dimension};
+    }
+
+    const navigationExtras: NavigationExtras = {
+      queryParams: myParams,
+      // queryParamsHandling: 'merge',
+    }
+    this.router.navigate(
+      ['locations',location.id],
+      navigationExtras)
   }
 
-  onSearch(){}
+  onSearch(){
+    let myParams: any = {}
+    
+    if(this.myForm.value.name){
+      myParams = { ...myParams, name : this.myForm.value.name};
+    }
+    if(this.myForm.value.type){
+      myParams = { ...myParams, type : this.myForm.value.type};
+    }
+    if(this.myForm.value.dimension){
+      myParams = { ...myParams, type : this.myForm.value.dimension};
+    }
+    
+    const navigationExtras: NavigationExtras = {
+      queryParams: myParams,
+      // queryParamsHandling: 'merge',
+    };
+
+    this.router.navigate(
+      ['/locations'],
+      navigationExtras)
+      console.log(myParams)
+  }
   
   onPrev(){
     this.router.navigate(['/locations'], 

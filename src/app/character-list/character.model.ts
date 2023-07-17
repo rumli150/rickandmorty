@@ -8,8 +8,8 @@ export class Character{
         public species : string,
         public type : string,
         public gender : string,
-        public origin : Location,
-        public location : Location,
+        public origin : CharLocation,
+        public location : CharLocation,
         public image: string,
         public episode: string[],
         public url : string,
@@ -17,7 +17,7 @@ export class Character{
     ){}
 }
 
-export class Location{
+export class CharLocation{
     constructor(
         public name : string,
         public url : string

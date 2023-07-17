@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Character,  Location } from './character.model';
+import { Character,  CharLocation } from './character.model';
 import { DataStorageService } from '../shared/data-storage.service';
 import { ActivatedRoute, NavigationExtras, Params, Router } from '@angular/router';
 import { CharacterFilter } from '../shared/filter.model';

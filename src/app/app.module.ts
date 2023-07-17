@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharacterProfileComponent } from './character-list/character-profile/character-profile.component';
 import { LocationListComponent } from './location-list/location-list.component';
 import { LocationListItemComponent } from './location-list/location-list-item/location-list-item.component';
+import { LocationProfileComponent } from './location-list/location-profile/location-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { LocationListItemComponent } from './location-list/location-list-item/lo
     ShortenPipe,
     CharacterProfileComponent,
     LocationListComponent,
-    LocationListItemComponent
+    LocationListItemComponent,
+    LocationProfileComponent
   ],
   imports: [
     BrowserModule,

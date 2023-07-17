@@ -7,6 +7,7 @@ import { CharacterListItemComponent } from './character-list/character-list-item
 import { CharacterProfileComponent } from './character-list/character-profile/character-profile.component';
 import { ProfileGuardService } from './shared/profile.guard.service';
 import { LocationListComponent } from './location-list/location-list.component';
+import { LocationProfileComponent } from './location-list/location-profile/location-profile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'characters', component: CharacterListComponent},
   {path: 'characters/:id', component: CharacterProfileComponent, canActivate: [ProfileGuardService]},
   {path: 'locations', component: LocationListComponent},
+  {path: 'locations/:id', component: LocationProfileComponent},
   {path: '**', component: ErrorPageComponent},
 ];
 

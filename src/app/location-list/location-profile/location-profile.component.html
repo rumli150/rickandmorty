@@ -1,0 +1,41 @@
+<div
+  class="container card"
+  style="width: 70%; background-color: rgb(59, 59, 59)"
+>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <div class="content">
+          <img src={{image}} class="img" />
+          <h1>{{ location.name }}</h1>
+          <h3>
+            {{ location.type }}
+          </h3>
+          <br />
+          <table class="table">
+            <tr>
+              <td>
+                <h3><b>Location type:</b></h3>
+              </td>
+              <td>
+                <h3>{{ location.type }}</h3>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                  <h3><b>Location dimension:</b></h3>
+                </td>
+                <td>
+                  <h3>{{ location.dimension }}</h3>
+                </td>
+              </tr>
+          </table>
+          <h3><b>Residents:</b></h3>
+          <p *ngFor="let ep of location.residents">{{ep}}</p>
+          <p>{{location.created | shorten}}</p>
+          <button class="btn btn-dark" style="background-color: #292929" (click)="onBack()" >BACK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
