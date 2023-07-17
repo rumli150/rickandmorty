@@ -18,6 +18,7 @@ export class CharacterListComponent implements OnInit {
   filter = new CharacterFilter();
   page = 1;
   info = new Info(0, 0, null, null);
+  filterError = false
   constructor(
     private dataStorageService: DataStorageService,
     private route: ActivatedRoute,
@@ -45,7 +46,14 @@ export class CharacterListComponent implements OnInit {
           this.characters = characters.results;
           this.info = characters.info;
           console.log(params);
-        });
+          this.filterError = false
+        },(error) => {
+          console.error('Error caught in component')
+          console.log(error);
+          console.log('Jajj ne')
+          this.filterError = true
+        }
+        );
     });
   }
 

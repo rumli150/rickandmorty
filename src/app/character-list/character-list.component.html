@@ -66,7 +66,7 @@
 </form>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-xs-12" [hidden]="filterError">
     Character count: {{ info.count }} - {{ info.pages }}/{{ page }}
     <button
       class="btn btn-default"
@@ -87,7 +87,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="!filterError">
   <div class="col-xs-12">
     <app-character-list-item
       *ngFor="let character of characters; let i = index"
@@ -95,4 +95,7 @@
       (click)="onSelectItem(character)"
     ></app-character-list-item>
   </div>
+</div>
+<div class="warning" *ngIf="filterError">
+  <p>Nincs találat</p>
 </div>
