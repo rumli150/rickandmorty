@@ -31,7 +31,8 @@
               </tr>
           </table>
           <h3><b>Residents:</b></h3>
-          <p *ngFor="let ep of location.residents">{{ep}}</p>
+          <!-- <p *ngFor="let ep of location.residents">{{ep}}</p> -->
+          <app-resident *ngFor="let l of location.residents" [indexStr]="l"></app-resident>
           <p>{{location.created | shorten}}</p>
           <button class="btn btn-dark" style="background-color: #292929" (click)="onBack()" >BACK</button>
         </div>

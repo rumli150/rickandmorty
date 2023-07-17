@@ -17,6 +17,7 @@ import { CharacterProfileComponent } from './character-list/character-profile/ch
 import { LocationListComponent } from './location-list/location-list.component';
 import { LocationListItemComponent } from './location-list/location-list-item/location-list-item.component';
 import { LocationProfileComponent } from './location-list/location-profile/location-profile.component';
+import { ResidentComponent } from './location-list/location-profile/resident/resident.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { LocationProfileComponent } from './location-list/location-profile/locat
     CharacterProfileComponent,
     LocationListComponent,
     LocationListItemComponent,
-    LocationProfileComponent
+    LocationProfileComponent,
+    ResidentComponent
   ],
   imports: [
     BrowserModule,
