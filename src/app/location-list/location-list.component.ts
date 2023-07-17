@@ -16,6 +16,8 @@ export class LocationListComponent {
   page = 1;
   info = new Info(0, 0, null, null);
   filter = new LocationFilter();
+  filterError = false
+  button = 'Search'
 
   constructor(
     private dataStorageService : DataStorageService,
@@ -40,7 +42,16 @@ export class LocationListComponent {
         .subscribe((characters) => {
           this.locations = characters.results;
           this.info = characters.info;
-        });
+          this.filterError = false
+          this.button = 'Search'
+        },(error) => {
+          console.error('Error caught in component')
+          console.log(error);
+          console.log('Jajj ne')
+          this.filterError = true
+          this.myForm.reset()
+          this.button = 'Retry'
+        })
     });
   }
   onSelectItem(location){

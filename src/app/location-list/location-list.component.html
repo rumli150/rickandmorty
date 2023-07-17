@@ -37,7 +37,7 @@
         </div>
         <div class="col-xs-3">
           <div class="form-group">
-            <button class="btn btn-info" type="submit">Search</button>
+            <button class="btn btn-info" type="submit">{{button}}</button>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
   </div>
   
 
-      <div class="row">
+      <div class="row" *ngIf="!filterError">
         <div class="col-xs-12">
           <app-location-list-item
             *ngFor="let location of locations; let i = index"
@@ -77,4 +77,6 @@
         </div>
       </div>
 
-  
+      <div class="warning" *ngIf="filterError">
+        <p>Nincs találat</p>
+      </div>
