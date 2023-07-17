@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { Character, Location } from 'src/app/shared/character.model';
+import { Character, Location } from 'src/app/character-list/character.model';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
-import { Filter } from 'src/app/shared/filter.model';
+import { CharacterFilter } from 'src/app/shared/filter.model';
 
 @Component({
   selector: 'app-character-profile',
@@ -13,7 +13,7 @@ export class CharacterProfileComponent implements OnInit{
   location = new Location('','')
   character = new Character(1,'','','','','',this.location,this.location,'',[],'','')
   id : number
-  filter = new Filter();
+  filter = new CharacterFilter();
 
   constructor(
     private dataStorageService: DataStorageService, 

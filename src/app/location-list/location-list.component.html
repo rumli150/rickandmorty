@@ -1,0 +1,80 @@
+<form #f="ngForm" (ngSubmit)="onSearch()">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="location name"
+            name="name"
+            ngModel
+          />
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <input
+            type="text"
+            class="form-control"
+            id="type"
+            placeholder="location type"
+            name="type"
+            ngModel
+          />
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <input
+            type="text"
+            class="form-control"
+            id="dimension"
+            placeholder="location dimension"
+            name="dimension"
+            ngModel
+          />
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <button class="btn btn-info" type="submit">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <div class="row">
+    <div class="col-xs-12">
+      Character count: {{ info.count }} - {{ info.pages }}/{{ page }}
+      <button
+        class="btn btn-default"
+        [routerLink]="['/locations']"
+        (click)="onPrev()"
+        [disabled]="info.prev == null"
+      >
+        prev
+      </button>
+      <button
+        class="btn btn-default"
+        [routerLink]="['/locations']"
+        (click)="onNext()"
+        [disabled]="info.next == null"
+      >
+        next
+      </button>
+    </div>
+  </div>
+  
+
+      <div class="row">
+        <div class="col-xs-12">
+          <app-location-list-item
+            *ngFor="let location of locations; let i = index"
+            [location]="location"
+            (click)="onSelectItem(location)"
+          ></app-location-list-item>
+        </div>
+      </div>
+
+  

@@ -1,10 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Character, Info, Location } from '../shared/character.model';
+import { Character,  Location } from './character.model';
 import { DataStorageService } from '../shared/data-storage.service';
 import { ActivatedRoute, NavigationExtras, Params, Router } from '@angular/router';
-import { Filter } from '../shared/filter.model';
+import { CharacterFilter } from '../shared/filter.model';
 import { NgForm } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
+import { Info } from '../shared/info.model';
 
 @Component({
   selector: 'app-character-list',
@@ -14,7 +15,7 @@ import { HttpParams } from '@angular/common/http';
 export class CharacterListComponent implements OnInit {
   @ViewChild('f') myForm: NgForm;
   characters: Character[];
-  filter = new Filter();
+  filter = new CharacterFilter();
   page = 1;
   info = new Info(0, 0, null, null);
   constructor(

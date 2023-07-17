@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Character, Location } from './character.model';
+import { Character, Location } from '../character-list/character.model';
 import { DataStorageService } from './data-storage.service';
 
 @Injectable({

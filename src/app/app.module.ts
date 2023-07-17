@@ -14,6 +14,8 @@ import { ShortenPipe } from './shorten.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharacterProfileComponent } from './character-list/character-profile/character-profile.component';
+import { LocationListComponent } from './location-list/location-list.component';
+import { LocationListItemComponent } from './location-list/location-list-item/location-list-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,9 @@ import { CharacterProfileComponent } from './character-list/character-profile/ch
     DropdownDirective,
     ErrorPageComponent,
     ShortenPipe,
-    CharacterProfileComponent
+    CharacterProfileComponent,
+    LocationListComponent,
+    LocationListItemComponent
   ],
   imports: [
     BrowserModule,

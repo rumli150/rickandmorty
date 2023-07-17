@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http'
-import { Character, CharacterList, Info, Location } from '../shared/character.model';
-import { Filter } from './filter.model';
+import { HttpClient, HttpParams} from '@angular/common/http'
+import { Character, CharacterList, Location } from '../character-list/character.model';
+import { CharacterFilter, LocationFilter } from './filter.model';
+import { LocationList } from '../location-list/location.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class DataStorageService {
   getCharacters(){
     return this.characters.slice()
   }
-  getCharactersFromDB(page : number, filter : Filter){
+  getCharactersFromDB(page : number, filter : CharacterFilter){
     let myParams = new HttpParams()
     myParams = myParams.append('page',page)
     if(filter.name){
@@ -41,5 +42,21 @@ export class DataStorageService {
   }
   getCharacter(id : number){
     return this.http.get<Character>('https://rickandmortyapi.com/api/character/'+id)
+  }
+  getLocationsFromDB(page : number, filter : LocationFilter){
+
+    let myParams = new HttpParams()
+    myParams = myParams.append('page',page)
+    if(filter.name){
+      myParams = myParams.append('name',filter.name)
+    }
+    if(filter.type){
+      myParams = myParams.append('name',filter.type)
+    }
+    if(filter.dimension){
+      myParams = myParams.append('name',filter.dimension)
+    }
+    return this.http.get<LocationList>('https://rickandmortyapi.com/api/location',
+    {params: myParams})
   }
 }
