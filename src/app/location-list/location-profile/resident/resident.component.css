@@ -1,6 +1,6 @@
 .card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
     border: 1px solid black;
     border-radius: 10px;
@@ -10,6 +10,7 @@
     height: 40px;
     width: 40px;
     display: inline-block;
+    cursor: pointer;
   }
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
@@ -17,4 +18,8 @@
   }
   img{
     width: 40px;
+    border-radius: 10px;
+  }
+  img:hover{
+    opacity: 0.8;
   }
