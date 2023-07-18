@@ -66,7 +66,7 @@ export class LocationListComponent {
       myParams = { ...myParams, type : this.filter.type};
     }
     if(this.filter.dimension){
-      myParams = { ...myParams, type : this.filter.dimension};
+      myParams = { ...myParams, dimension : this.filter.dimension};
     }
 
     const navigationExtras: NavigationExtras = {
@@ -88,7 +88,7 @@ export class LocationListComponent {
       myParams = { ...myParams, type : this.myForm.value.type};
     }
     if(this.myForm.value.dimension){
-      myParams = { ...myParams, type : this.myForm.value.dimension};
+      myParams = { ...myParams, dimension : this.myForm.value.dimension};
     }
     
     const navigationExtras: NavigationExtras = {
