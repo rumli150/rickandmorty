@@ -1,0 +1,39 @@
+<div
+  class="container card"
+  style="width: 70%; background-color: rgb(59, 59, 59)"
+>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <div class="content">
+          <h1>{{ episode.name }}</h1>
+          <br />
+          <table class="table">
+            <tr>
+              <td>
+                <h3><b>Episode code:</b></h3>
+              </td>
+              <td>
+                <h3>{{ episode.episode }}</h3>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                  <h3><b>Air date:</b></h3>
+                </td>
+                <td>
+                  <h3>{{ episode.air_date }}</h3>
+                </td>
+              </tr>
+          </table>
+          <h3><b>Residents:</b></h3>
+          <!-- <p *ngFor="let ep of location.residents">{{ep}}</p> -->
+          <app-episode-characters *ngFor="let l of episode.characters" [indexStr]="l"></app-episode-characters>
+          <br><br>
+          <p>{{episode.created | shorten}}</p>
+          <button class="btn btn-dark" style="background-color: #292929" (click)="onBack()" >BACK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

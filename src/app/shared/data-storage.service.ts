@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams} from '@angular/common/http'
 import { Character, CharacterList, CharLocation } from '../character-list/character.model';
-import { CharacterFilter, LocationFilter } from './filter.model';
+import { CharacterFilter, EpisodeFilter, LocationFilter } from './filter.model';
 import { LocationList } from '../location-list/location.model';
 import { Location } from '../location-list/location.model';
 import { FilterError } from './error.model';
+import { Episode, EpisodeList } from '../episode-list/character.model';
 
 @Injectable({
   providedIn: 'root'
@@ -63,5 +64,20 @@ export class DataStorageService {
   }
   getLocation(id : number){
     return this.http.get<Location>('https://rickandmortyapi.com/api/location/'+id)
+  }
+  getEpisodesFromDB(page : number, filter : EpisodeFilter){
+    let myParams = new HttpParams()
+    myParams = myParams.append('page',page)
+    if(filter.name){
+      myParams = myParams.append('name',filter.name)
+    }
+    if(filter.episode){
+      myParams = myParams.append('episode',filter.episode)
+    }
+    return this.http.get<EpisodeList>('https://rickandmortyapi.com/api/episode',
+    {params: myParams})
+  }
+  getEpisode(id : number){
+    return this.http.get<Episode>('https://rickandmortyapi.com/api/episode/'+id)
   }
 }

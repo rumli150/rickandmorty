@@ -6,35 +6,21 @@
             type="text"
             class="form-control"
             id="name"
-            placeholder="location name"
+            placeholder="episode name"
             name="name"
             ngModel
           />
         </div>
         <div class="col-xs-3">
-          <div class="form-group">
-            <input
-            type="text"
-            class="form-control"
-            id="type"
-            placeholder="location type"
-            name="type"
-            ngModel
-          />
+          <select class="form-control" id="episode" name="episode"  [ngModel]="'Not specified'">
+                <option value="Not specified">Not specified</option>
+                <option value="s01">1. season</option>
+                <option value="s02">2. season</option>
+                <option value="s03">3. season</option>
+                <option value="s04">4. season</option>
+                <option value="s05">5. season</option>
+              </select>
           </div>
-        </div>
-        <div class="col-xs-3">
-          <div class="form-group">
-            <input
-            type="text"
-            class="form-control"
-            id="dimension"
-            placeholder="location dimension"
-            name="dimension"
-            ngModel
-          />
-          </div>
-        </div>
         <div class="col-xs-3">
           <div class="form-group">
             <button class="btn btn-info" type="submit">{{button}}</button>
@@ -46,7 +32,7 @@
   
   <div class="row">
     <div class="col-xs-12">
-      Location count: {{ info.count }} - {{ info.pages }}/{{ page }}
+      Character count: {{ info.count }} - {{ info.pages }}/{{ page }}
       <button
         class="btn btn-default"
         [routerLink]="['/locations']"
@@ -69,11 +55,11 @@
 
       <div class="row" *ngIf="!filterError">
         <div class="col-xs-12">
-          <app-location-list-item
-            *ngFor="let location of locations; let i = index"
-            [location]="location"
-            (click)="onSelectItem(location)"
-          ></app-location-list-item>
+          <app-episode-list-item
+            *ngFor="let episode of episodes; let i = index"
+            [episode]="episode"
+            (click)="onSelectItem(episode)"
+          ></app-episode-list-item>
         </div>
       </div>
 

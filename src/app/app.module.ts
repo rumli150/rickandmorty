@@ -18,6 +18,10 @@ import { LocationListComponent } from './location-list/location-list.component';
 import { LocationListItemComponent } from './location-list/location-list-item/location-list-item.component';
 import { LocationProfileComponent } from './location-list/location-profile/location-profile.component';
 import { ResidentComponent } from './location-list/location-profile/resident/resident.component';
+import { EpisodeListComponent } from './episode-list/episode-list.component';
+import { EpisodeListItemComponent } from './episode-list/episode-list-item/episode-list-item.component';
+import { EpisodeProfileComponent } from './episode-list/episode-profile/episode-profile.component';
+import { EpisodeCharactersComponent } from './episode-list/episode-profile/episode-characters/episode-characters.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +36,11 @@ import { ResidentComponent } from './location-list/location-profile/resident/res
     LocationListComponent,
     LocationListItemComponent,
     LocationProfileComponent,
-    ResidentComponent
+    ResidentComponent,
+    EpisodeListComponent,
+    EpisodeListItemComponent,
+    EpisodeProfileComponent,
+    EpisodeCharactersComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,9 @@ import { CharacterProfileComponent } from './character-list/character-profile/ch
 import { ProfileGuardService } from './shared/profile.guard.service';
 import { LocationListComponent } from './location-list/location-list.component';
 import { LocationProfileComponent } from './location-list/location-profile/location-profile.component';
+import { EpisodeListComponent } from './episode-list/episode-list.component';
+import { EpisodeListItemComponent } from './episode-list/episode-list-item/episode-list-item.component';
+import { EpisodeProfileComponent } from './episode-list/episode-profile/episode-profile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -16,6 +19,8 @@ const routes: Routes = [
   {path: 'characters/:id', component: CharacterProfileComponent, canActivate: [ProfileGuardService]},
   {path: 'locations', component: LocationListComponent},
   {path: 'locations/:id', component: LocationProfileComponent},
+  {path: 'episodes', component: EpisodeListComponent},
+  {path: 'episodes/:id', component: EpisodeProfileComponent},
   {path: '**', component: ErrorPageComponent},
 ];
 

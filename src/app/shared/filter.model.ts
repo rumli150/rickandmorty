@@ -14,3 +14,9 @@ export class LocationFilter{
         public dimension?: string,
     ){}
 }
+export class EpisodeFilter{
+    constructor(
+        public name?: string,
+        public episode?: string
+    ){}
+}
