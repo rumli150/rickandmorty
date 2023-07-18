@@ -4,6 +4,7 @@ import { EpisodeFilter } from 'src/app/shared/filter.model';
 import { Subscription } from 'rxjs';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { NavigationService } from 'src/app/shared/navigation.service';
 
 @Component({
   selector: 'app-episode-profile',
@@ -20,7 +21,8 @@ export class EpisodeProfileComponent {
   constructor(
     private dataStorageService: DataStorageService, 
     private router: Router,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private navigation : NavigationService
   ) {} 
 
   ngOnInit(){
@@ -37,9 +39,10 @@ export class EpisodeProfileComponent {
       queryParamsHandling: 'merge',
     }
 
-    this.router.navigate(
-      ['/episodes'],
-      navigationExtras)
+    // this.router.navigate(
+    //   ['/characters'],
+    //   navigationExtras)
+    this.navigation.back()
   }
   ngOnDestroy(){
     this.sub.unsubscribe()

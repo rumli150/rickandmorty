@@ -41,6 +41,6 @@ export class ResidentComponent {
     })
   }
   ngOnDestroy(){
-
+    this.sub.unsubscribe()
   }
 }

@@ -21,6 +21,7 @@ import { ResidentComponent } from './location-list/location-profile/resident/res
 import { EpisodeListComponent } from './episode-list/episode-list.component';
 import { EpisodeListItemComponent } from './episode-list/episode-list-item/episode-list-item.component';
 import { EpisodeProfileComponent } from './episode-list/episode-profile/episode-profile.component';
+import { CharacterEpisodeComponent } from './character-list/character-profile/character-episode/character-episode.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { EpisodeProfileComponent } from './episode-list/episode-profile/episode-
     EpisodeListComponent,
     EpisodeListItemComponent,
     EpisodeProfileComponent,
+    CharacterEpisodeComponent,
   ],
   imports: [
     BrowserModule,
