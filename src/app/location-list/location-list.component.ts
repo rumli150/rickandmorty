@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Info } from '../shared/info.model';
 import { Location } from './location.model';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { DataStorageService } from '../shared/data-storage.service';
 import { ActivatedRoute, NavigationExtras, Params, Router } from '@angular/router';
 import { LocationFilter } from '../shared/filter.model';
@@ -11,13 +11,14 @@ import { LocationFilter } from '../shared/filter.model';
   styleUrls: ['./location-list.component.css']
 })
 export class LocationListComponent {
-  @ViewChild('f') myForm: NgForm;
   locations: Location[];
   page = 1;
   info = new Info(0, 0, null, null);
   filter = new LocationFilter();
   filterError = false
   button = 'Search'
+
+  myForm : FormGroup
 
   constructor(
     private dataStorageService : DataStorageService,
@@ -26,13 +27,18 @@ export class LocationListComponent {
   ){}
 
   ngOnInit(){
+    this.myForm = new FormGroup({
+      'name' : new FormControl(null),
+      'type' : new FormControl(null),
+      'dimension' : new FormControl(null)
+    })
+
+
     this.route.queryParams.subscribe((params: Params) => {
       this.page = params['page'];
       this.filter.name = params['name'];
       this.filter.type = params['type'];
       this.filter.dimension = params['dimension'];
-      // console.log(this.filter);
-      // console.log(this.page);
       if (this.page == undefined) {
         this.page = 1;
       }
@@ -49,10 +55,12 @@ export class LocationListComponent {
           console.log(error);
           console.log('Jajj ne')
           this.filterError = true
-          this.myForm.reset()
           this.button = 'Retry'
         })
     });
+    this.myForm.valueChanges.subscribe(()=>{
+      this.onSearch()
+    })
   }
   onSelectItem(location){
     let myParams: any = {page: this.page}

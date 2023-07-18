@@ -1,4 +1,4 @@
-<form #f="ngForm" (ngSubmit)="onSearch()">
+<form [formGroup]="myForm">
     <div class="form-group">
       <div class="row">
         <div class="col-xs-3">
@@ -8,7 +8,7 @@
             id="name"
             placeholder="location name"
             name="name"
-            ngModel
+            formControlName="name"
           />
         </div>
         <div class="col-xs-3">
@@ -19,7 +19,7 @@
             id="type"
             placeholder="location type"
             name="type"
-            ngModel
+            formControlName="type"
           />
           </div>
         </div>
@@ -31,13 +31,8 @@
             id="dimension"
             placeholder="location dimension"
             name="dimension"
-            ngModel
+            formControlName="dimension"
           />
-          </div>
-        </div>
-        <div class="col-xs-3">
-          <div class="form-group">
-            <button class="btn btn-info" type="submit">{{button}}</button>
           </div>
         </div>
       </div>
