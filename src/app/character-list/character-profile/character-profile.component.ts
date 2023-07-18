@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Character, CharacterList, CharLocation } from 'src/app/character-list/character.model';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { CharacterFilter } from 'src/app/shared/filter.model';
+import { NavigationService } from 'src/app/shared/navigation.service';
 
 @Component({
   selector: 'app-character-profile',
@@ -20,7 +21,8 @@ export class CharacterProfileComponent implements OnInit{
   constructor(
     private dataStorageService: DataStorageService, 
     private router: Router,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private navigation : NavigationService
   ) {
     // console.log(this.router.getCurrentNavigation().extras.state.example)
   } 
@@ -38,9 +40,10 @@ export class CharacterProfileComponent implements OnInit{
       queryParamsHandling: 'merge',
     }
 
-    this.router.navigate(
-      ['/characters'],
-      navigationExtras)
+    // this.router.navigate(
+    //   ['/characters'],
+    //   navigationExtras)
+    this.navigation.back()
   }
   ngOnDestroy(){
     this.sub.unsubscribe()
