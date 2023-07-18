@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<!-- <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <ul class="nav navbar-nav">
@@ -19,4 +19,29 @@
         </div>
         
     </div>
-</nav>
+</nav> -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid pull-left">
+      <div class="navbar-header" appDropdown>
+        <button type="button" class="navbar-toggle" data-toggle="collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                  
+        </button>
+        <ul class="dropdown-menu">
+            <li><a style="cursor: pointer;" routerLink="home">Home Page</a></li>
+            <li><a style="cursor: pointer;" routerLink="characters">Characters Page</a></li>
+            <li><a style="cursor: pointer;" routerLink="locations">Locations Page</a></li>
+            <li><a style="cursor: pointer;" routerLink="episodes">Episodes Page</a></li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a style="cursor: pointer;" routerLink="home" class="active">Home Page</a></li>
+          <li><a style="cursor: pointer;" routerLink="characters">Characters Page</a></li>
+          <li><a style="cursor: pointer;" routerLink="locations">Locations Page</a></li>
+          <li><a style="cursor: pointer;" routerLink="episodes">Episodes Page</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
