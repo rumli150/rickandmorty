@@ -68,16 +68,14 @@
 <div class="row">
   <div class="col-xs-12" [hidden]="filterError">
     {{"Character count" | translate}}: {{ info.count }} - {{ info.pages }}/{{ page }}
-    <button
-      class="btn btn-default"
+    <button mat-button
       [routerLink]="['/characters']"
       (click)="onPrev()"
       [disabled]="info.prev == null"
     >
       {{"prev" | translate}}
     </button>
-    <button
-      class="btn btn-default"
+    <button mat-button
       [routerLink]="['/characters']"
       (click)="onNext()"
       [disabled]="info.next == null"

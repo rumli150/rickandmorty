@@ -33,16 +33,14 @@
   <div class="row">
     <div class="col-xs-12">
       Character count: {{ info.count }} - {{ info.pages }}/{{ page }}
-      <button
-        class="btn btn-default"
+      <button  mat-button
         [routerLink]="['/locations']"
         (click)="onPrev()"
         [disabled]="info.prev == null"
       >
         prev
       </button>
-      <button
-        class="btn btn-default"
+      <button  mat-button
         [routerLink]="['/locations']"
         (click)="onNext()"
         [disabled]="info.next == null"
