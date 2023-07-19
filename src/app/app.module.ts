@@ -11,7 +11,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { menuComponentService } from './menu/menu.component.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ShortenPipe } from './shorten.pipe';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharacterProfileComponent } from './character-list/character-profile/character-profile.component';
 import { LocationListComponent } from './location-list/location-list.component';
@@ -22,6 +22,13 @@ import { EpisodeListComponent } from './episode-list/episode-list.component';
 import { EpisodeListItemComponent } from './episode-list/episode-list-item/episode-list-item.component';
 import { EpisodeProfileComponent } from './episode-list/episode-profile/episode-profile.component';
 import { CharacterEpisodeComponent } from './character-list/character-profile/character-episode/character-episode.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +54,15 @@ import { CharacterEpisodeComponent } from './character-list/character-profile/ch
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+        
+      }
+    })
   ],
   providers: [menuComponentService],
   bootstrap: [AppComponent]

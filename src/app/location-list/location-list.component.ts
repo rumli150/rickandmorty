@@ -16,7 +16,6 @@ export class LocationListComponent {
   info = new Info(0, 0, null, null);
   filter = new LocationFilter();
   filterError = false
-  button = 'Search'
 
   myForm : FormGroup
 
@@ -49,13 +48,11 @@ export class LocationListComponent {
           this.locations = characters.results;
           this.info = characters.info;
           this.filterError = false
-          this.button = 'Search'
         },(error) => {
           console.error('Error caught in component')
           console.log(error);
           console.log('Jajj ne')
           this.filterError = true
-          this.button = 'Retry'
         })
     });
     this.myForm.valueChanges.subscribe(()=>{
