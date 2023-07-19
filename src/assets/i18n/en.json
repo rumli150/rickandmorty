@@ -7,5 +7,6 @@
     "home_page" : "Home Page",
     "characters_page" : "Characters Page",
     "locations_page" : "Locations Page",
-    "episodes_page" : "Episodes Page"
+    "episodes_page" : "Episodes Page",
+    "not_specified" : "Not specified"
 }

@@ -7,5 +7,20 @@
     "home_page" : "Főoldal",
     "characters_page" : "Szereplők",
     "locations_page" : "Helyszínek",
-    "episodes_page" : "Epizódok"
+    "episodes_page" : "Epizódok",
+    "not_specified" : "Nem definiált",
+    "Alive" : "Él",
+    "Dead" : "Halott",
+    "Unknown" : "Nem tudni",
+    "Female" : "Nő",
+    "Male" : "Férfi",
+    "Genderless" : "Nemtelen",
+    "character species" : "szereplő faja",
+    "character type" : "szereplő típusa",
+    "character name" : "szereplő neve",
+    "Search" : "Keresés",
+    "Retry" : "Újra",
+    "Character count" : "Szereplők száma",
+    "prev" : "előző",
+    "next" : "kövi"
 }

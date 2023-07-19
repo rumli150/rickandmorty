@@ -6,7 +6,7 @@
           type="text"
           class="form-control"
           id="name"
-          placeholder="character name"
+          placeholder="{{'character name' | translate}}"
           name="name"
           ngModel
         />
@@ -14,16 +14,16 @@
       <div class="col-xs-3">
         <div class="form-group">
           <select class="form-control" id="status" name="status" [ngModel]="'Not specified'">
-            <option value="Not specified">Not specified</option>
-            <option value="Alive">Alive</option>
-            <option value="Dead">Dead</option>
-            <option value="Unknown">Unknown</option>
+            <option value="Not specified">{{"not_specified" | translate}}</option>
+            <option value="Alive">{{"Alive" | translate}}</option>
+            <option value="Dead">{{"Dead" | translate}}</option>
+            <option value="Unknown">{{"Unknown" | translate}}</option>
           </select>
         </div>
       </div>
       <div class="col-xs-3">
         <div class="form-group">
-          <button class="btn btn-info" type="submit">{{button}}</button>
+          <button class="btn btn-info" type="submit">{{button | translate}}</button>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
           type="text"
           class="form-control"
           id="species"
-          placeholder="character species"
+          placeholder="{{'character species' | translate}}"
           name="species"
           ngModel
         />
@@ -44,7 +44,7 @@
             type="text"
             class="form-control"
             id="type"
-            placeholder="character type"
+            placeholder="{{'character type' | translate}}"
             name="type"
             ngModel
           />
@@ -53,11 +53,11 @@
       <div class="col-xs-3">
         <div class="form-group">
             <select class="form-control" id="gender" name="gender"  [ngModel]="'Not specified'">
-                <option value="Not specified">Not specified</option>
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-                <option value="Genderless">Genderless</option>
-                <option value="Unknown">Unknown</option>
+                <option value="Not specified">{{"not_specified" | translate}}</option>
+                <option value="Female">{{"Female" | translate}}</option>
+                <option value="Male">{{"Male" | translate}}</option>
+                <option value="Genderless">{{"Genderless" | translate}}</option>
+                <option value="Unknown">{{"Unknown" | translate}}</option>
               </select>
         </div>
       </div>
@@ -67,14 +67,14 @@
 
 <div class="row">
   <div class="col-xs-12" [hidden]="filterError">
-    Character count: {{ info.count }} - {{ info.pages }}/{{ page }}
+    {{"Character count" | translate}}: {{ info.count }} - {{ info.pages }}/{{ page }}
     <button
       class="btn btn-default"
       [routerLink]="['/characters']"
       (click)="onPrev()"
       [disabled]="info.prev == null"
     >
-      prev
+      {{"prev" | translate}}
     </button>
     <button
       class="btn btn-default"
@@ -82,7 +82,7 @@
       (click)="onNext()"
       [disabled]="info.next == null"
     >
-      next
+      {{"next" | translate}}
     </button>
   </div>
 </div>
