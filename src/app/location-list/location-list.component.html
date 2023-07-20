@@ -6,7 +6,7 @@
             type="text"
             class="form-control"
             id="name"
-            placeholder="location name"
+            placeholder="{{'location name' | translate}}"
             name="name"
             formControlName="name"
           />
@@ -17,7 +17,7 @@
             type="text"
             class="form-control"
             id="type"
-            placeholder="location type"
+            placeholder="{{'location type' | translate}}"
             name="type"
             formControlName="type"
           />
@@ -29,7 +29,7 @@
             type="text"
             class="form-control"
             id="dimension"
-            placeholder="location dimension"
+            placeholder="{{'location dimension' | translate}}"
             name="dimension"
             formControlName="dimension"
           />
@@ -41,20 +41,20 @@
   
   <div class="row">
     <div class="col-xs-12">
-      Location count: {{ info.count }} - {{ info.pages }}/{{ page }}
+      {{"Location count:" | translate}} {{ info.count }} - {{ info.pages }}/{{ page }}
       <button mat-button
         [routerLink]="['/locations']"
         (click)="onPrev()"
         [disabled]="info.prev == null"
       >
-        prev
+        {{"prev" | translate}}
       </button>
       <button mat-button
         [routerLink]="['/locations']"
         (click)="onNext()"
         [disabled]="info.next == null"
       >
-        next
+        {{"next" | translate}}
       </button>
     </div>
   </div>
@@ -71,5 +71,5 @@
       </div>
 
       <div class="warning" *ngIf="filterError">
-        <p>Nincs találat</p>
+        <p>{{"No item found" | translate}}</p>
       </div>

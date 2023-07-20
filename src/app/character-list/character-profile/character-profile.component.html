@@ -11,18 +11,18 @@
           <h3
             [ngStyle]="{
               color:
-                character.status == 'Alive'
+                character.status == 'Alive' 
                   ? 'rgb(85, 204, 68)' : character.status == 'Dead'
                   ? 'rgb(214, 61, 46)' : 'lightgrey'
             }"
           >
-            {{ character.status }}
+            {{ character.status | translate}}
           </h3>
           <br />
           <table class="table">
             <tr>
               <td>
-                <h3><b>Last known location:</b></h3>
+                <h3><b>{{"Last known location:" | translate}}</b></h3>
               </td>
               <td>
                 <h3>{{ character.location.name }}</h3>
@@ -30,19 +30,19 @@
             </tr>
             <tr>
                 <td>
-                  <h3><b>Origin location:</b></h3>
+                  <h3><b>{{"Origin location:" | translate}}</b></h3>
                 </td>
                 <td>
                   <h3>{{ character.origin.name }}</h3>
                 </td>
               </tr>
           </table>
-          <h3><b>Episodes in:</b></h3>
+          <h3><b>{{"Episodes in:" | translate}}</b></h3>
           <!-- <p *ngFor="let ep of character.episode">{{ep}}</p> -->
           <app-character-episode *ngFor="let ep of character.episode" [indexStr]="ep"></app-character-episode>
           <br><br>
           <p>{{character.created | shorten}}</p>
-          <button class="btn btn-dark" style="background-color: #292929" (click)="onBack()" >BACK</button>
+          <button class="btn btn-dark" style="background-color: #292929" (click)="onBack()" >{{"BACK" | translate}}</button>
         </div>
       </div>
     </div>

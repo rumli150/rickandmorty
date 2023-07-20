@@ -6,24 +6,24 @@
             type="text"
             class="form-control"
             id="name"
-            placeholder="episode name"
+            placeholder="{{'episode name' | translate}}"
             name="name"
             ngModel
           />
         </div>
         <div class="col-xs-3">
           <select class="form-control" id="episode" name="episode"  [ngModel]="'Not specified'">
-                <option value="Not specified">Not specified</option>
-                <option value="s01">1. season</option>
-                <option value="s02">2. season</option>
-                <option value="s03">3. season</option>
-                <option value="s04">4. season</option>
-                <option value="s05">5. season</option>
+                <option value="Not specified">{{'Not specified' | translate}}</option>
+                <option value="s01">1. {{'season' | translate}}</option>
+                <option value="s02">2. {{'season' | translate}}</option>
+                <option value="s03">3. {{'season' | translate}}</option>
+                <option value="s04">4. {{'season' | translate}}</option>
+                <option value="s05">5. {{'season' | translate}}</option>
               </select>
           </div>
         <div class="col-xs-3">
           <div class="form-group">
-            <button class="btn btn-info" type="submit">{{button}}</button>
+            <button class="btn btn-info" type="submit">{{button | translate}}</button>
           </div>
         </div>
       </div>
@@ -38,14 +38,14 @@
         (click)="onPrev()"
         [disabled]="info.prev == null"
       >
-        prev
+        {{"prev" | translate}}
       </button>
       <button  mat-button
         [routerLink]="['/locations']"
         (click)="onNext()"
         [disabled]="info.next == null"
       >
-        next
+        {{"next" | translate}}
       </button>
     </div>
   </div>
@@ -62,5 +62,5 @@
       </div>
 
       <div class="warning" *ngIf="filterError">
-        <p>Nincs találat</p>
+        <p>{{"No item found" | translate}}</p>
       </div>

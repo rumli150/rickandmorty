@@ -9,33 +9,33 @@
           <img src={{image}} class="img" />
           <h1>{{ location.name }}</h1>
           <h3>
-            {{ location.type }}
+            {{ location.type | translate}}
           </h3>
           <br />
           <table class="table">
             <tr>
               <td>
-                <h3><b>Location type:</b></h3>
+                <h3><b>{{'Location type:'| translate}}</b></h3>
               </td>
               <td>
-                <h3>{{ location.type }}</h3>
+                <h3>{{ location.type | translate}}</h3>
               </td>
             </tr>
             <tr>
                 <td>
-                  <h3><b>Location dimension:</b></h3>
+                  <h3><b>{{'Location dimension:' | translate}}</b></h3>
                 </td>
                 <td>
                   <h3>{{ location.dimension }}</h3>
                 </td>
               </tr>
           </table>
-          <h3><b>Residents:</b></h3>
+          <h3><b>{{"Residents:" | translate}}</b></h3>
           <!-- <p *ngFor="let ep of location.residents">{{ep}}</p> -->
           <app-resident *ngFor="let l of location.residents" [indexStr]="l"></app-resident>
           <br><br>
           <p>{{location.created | shorten}}</p>
-          <button class="btn btn-dark" style="background-color: #292929" (click)="onBack()" >BACK</button>
+          <button class="btn btn-dark" style="background-color: #292929" (click)="onBack()" >{{'BACK' | translate}}</button>
         </div>
       </div>
     </div>

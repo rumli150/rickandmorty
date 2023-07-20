@@ -11,7 +11,7 @@
           <table class="table">
             <tr>
               <td>
-                <h3><b>Episode code:</b></h3>
+                <h3><b>{{'Episode code:' | translate}}</b></h3>
               </td>
               <td>
                 <h3>{{ episode.episode }}</h3>
@@ -19,19 +19,19 @@
             </tr>
             <tr>
                 <td>
-                  <h3><b>Air date:</b></h3>
+                  <h3><b>{{"Air date:" | translate}}</b></h3>
                 </td>
                 <td>
                   <h3>{{ episode.air_date }}</h3>
                 </td>
               </tr>
           </table>
-          <h3><b>Characters in episode:</b></h3>
+          <h3><b>{{"Characters in episode:" | translate}}</b></h3>
           <!-- <p *ngFor="let ep of location.residents">{{ep}}</p> -->
           <app-resident *ngFor="let l of episode.characters" [indexStr]="l"></app-resident>
           <br><br>
           <p>{{episode.created | shorten}}</p>
-          <button class="btn btn-dark" style="background-color: #292929" (click)="onBack()" >BACK</button>
+          <button class="btn btn-dark" style="background-color: #292929" (click)="onBack()" >{{"BACK" | translate}}</button>
         </div>
       </div>
     </div>
