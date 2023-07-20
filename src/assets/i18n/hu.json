@@ -56,5 +56,12 @@
     "No item found" : "Nincs találat",
     "Episode code:" : "Epizód Kód:",
     "Air date:" : "Epizód dátuma:",
-    "Characters in episode:" : "Szereplők ebben az epizódban:"
+    "Characters in episode:" : "Szereplők ebben az epizódban:",
+    "Human" : "Ember",
+    "Animal" : "Állat",
+    "Alien" : "Űrlény",
+    "Humanoid" : "Emberszerű",
+    "Poopybutthole" : "Kakiskuki",
+    "Mythological Creature" : "Mitológiai lény",
+    "Disease" : "Betegség"
 }

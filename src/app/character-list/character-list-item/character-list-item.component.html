@@ -12,8 +12,8 @@
             </div>
             <div class="col-xs-4">
                 <h3>{{character.name}}</h3>
-                <p>{{character.species}}</p>
-                <p>{{character.gender}}</p>
+                <p>{{character.species | translate}}</p>
+                <p>{{character.gender | translate}}</p>
             </div>
             <div class="col-xs-6">
                 <p><b>{{"Last known location:" | translate}}</b> {{character.location.name}}</p>
