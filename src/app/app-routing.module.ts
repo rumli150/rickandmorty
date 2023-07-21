@@ -12,16 +12,17 @@ import { EpisodeListComponent } from './episode-list/episode-list.component';
 import { EpisodeListItemComponent } from './episode-list/episode-list-item/episode-list-item.component';
 import { EpisodeProfileComponent } from './episode-list/episode-profile/episode-profile.component';
 import { AuthComponent } from './auth/auth.component';
+import { AuthGuardService } from './shared/auth.guard.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'characters', component: CharacterListComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuardService]},
+  {path: 'characters', component: CharacterListComponent, canActivate: [AuthGuardService]},
   {path: 'characters/:id', component: CharacterProfileComponent, canActivate: [ProfileGuardService]},
-  {path: 'locations', component: LocationListComponent},
-  {path: 'locations/:id', component: LocationProfileComponent},
-  {path: 'episodes', component: EpisodeListComponent},
-  {path: 'episodes/:id', component: EpisodeProfileComponent},
+  {path: 'locations', component: LocationListComponent, canActivate: [AuthGuardService]},
+  {path: 'locations/:id', component: LocationProfileComponent, canActivate: [AuthGuardService]},
+  {path: 'episodes', component: EpisodeListComponent, canActivate: [AuthGuardService]},
+  {path: 'episodes/:id', component: EpisodeProfileComponent, canActivate: [AuthGuardService]},
   {path: 'auth', component: AuthComponent},
   {path: '**', component: ErrorPageComponent},
 ];

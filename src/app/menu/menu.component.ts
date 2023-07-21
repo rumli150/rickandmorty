@@ -3,6 +3,7 @@ import { menuComponentService } from './menu.component.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -18,7 +19,9 @@ export class MenuComponent {
 
   constructor(private menuService: menuComponentService,
     private translate: TranslateService,
-    private authService : AuthService){}
+    private authService : AuthService,
+    private router: Router
+    ){}
 
   ngOnInit(){
     this.sub = this.menuService.caretEvent.subscribe(isOpen => {
@@ -39,5 +42,9 @@ export class MenuComponent {
   ngOnDestroy(){
     this.sub.unsubscribe()
     this.subtwo.unsubscribe()
+  }
+  onLogOut(){
+    this.authService.logger.next(false)
+    this.router.navigate(['auth'])
   }
 }

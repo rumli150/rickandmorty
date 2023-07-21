@@ -36,14 +36,14 @@
           <span class="icon-bar"></span>                  
         </button>
         <ul class="dropdown-menu pull-right">
-            <li><a style="cursor: pointer;" *ngIf="!isLoggedIn">LogOut</a></li>
+            <li><a style="cursor: pointer;" *ngIf="isLoggedIn" (click)="onLogOut()">LogOut</a></li>
             <li><a style="cursor: pointer;" (click)="switchLanguage('hu')">HU</a></li>
             <li><a style="cursor: pointer;" (click)="switchLanguage('en')">EN</a></li>
           </ul>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-          <li><a style="cursor: pointer;" *ngIf="!isLoggedIn"><b>LogOut</b></a></li>
+          <li><a style="cursor: pointer;" *ngIf="isLoggedIn" (click)="onLogOut()"><b>LogOut</b></a></li>
           <li><a style="cursor: pointer;" (click)="switchLanguage('hu')">HU</a></li>
             <li><a style="cursor: pointer;" (click)="switchLanguage('en')">EN</a></li>
         </ul>
