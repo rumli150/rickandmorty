@@ -30,6 +30,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { AuthComponent } from './auth/auth.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -54,6 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EpisodeListItemComponent,
     EpisodeProfileComponent,
     CharacterEpisodeComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [menuComponentService],
   bootstrap: [AppComponent]

@@ -11,6 +11,7 @@ import { LocationProfileComponent } from './location-list/location-profile/locat
 import { EpisodeListComponent } from './episode-list/episode-list.component';
 import { EpisodeListItemComponent } from './episode-list/episode-list-item/episode-list-item.component';
 import { EpisodeProfileComponent } from './episode-list/episode-profile/episode-profile.component';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'locations/:id', component: LocationProfileComponent},
   {path: 'episodes', component: EpisodeListComponent},
   {path: 'episodes/:id', component: EpisodeProfileComponent},
+  {path: 'auth', component: AuthComponent},
   {path: '**', component: ErrorPageComponent},
 ];
 
