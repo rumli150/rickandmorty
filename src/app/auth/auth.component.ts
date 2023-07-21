@@ -27,12 +27,6 @@ export class AuthComponent {
     })
     this.authService.logger.subscribe(state => {
       this.LoggedIn = state
-
-      if(this.LoggedIn){
-        console.log("You are currently logged in")
-      }else{
-        console.log("You are currently NOT logged in")
-      }
     })
       this.LoggedIn = this.authService.isLoggedIn
       if(this.LoggedIn){

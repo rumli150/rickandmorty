@@ -6,19 +6,25 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                  
         </button>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" *ngIf="isLoggedIn">
             <li><a style="cursor: pointer;" routerLink="home">{{"home_page" | translate}}</a></li>
             <li><a style="cursor: pointer;" routerLink="characters">{{"characters_page" | translate}}</a></li>
             <li><a style="cursor: pointer;" routerLink="locations">{{"locations_page" | translate}}</a></li>
             <li><a style="cursor: pointer;" routerLink="episodes">{{"episodes_page" | translate}}</a></li>
         </ul>
+        <ul class="dropdown-menu" *ngIf="!isLoggedIn">
+          <li><a style="cursor: pointer;" routerLink="auth">{{"Auth Page" | translate}}</a></li>
+        </ul>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" *ngIf="isLoggedIn">
           <li><a style="cursor: pointer;" routerLink="home" class="active">{{"home_page" | translate}}</a></li>
           <li><a style="cursor: pointer;" routerLink="characters">{{"characters_page" | translate}}</a></li>
           <li><a style="cursor: pointer;" routerLink="locations">{{"locations_page" | translate}}</a></li>
           <li><a style="cursor: pointer;" routerLink="episodes">{{"episodes_page" | translate}}</a></li>
+        </ul>
+        <ul class="nav navbar-nav" *ngIf="!isLoggedIn">
+          <li><a style="cursor: pointer;" routerLink="auth">{{"Auth Page" | translate}}</a></li>
         </ul>
       </div>
     </div>
@@ -30,12 +36,14 @@
           <span class="icon-bar"></span>                  
         </button>
         <ul class="dropdown-menu pull-right">
+            <li><a style="cursor: pointer;" *ngIf="!isLoggedIn">LogOut</a></li>
             <li><a style="cursor: pointer;" (click)="switchLanguage('hu')">HU</a></li>
             <li><a style="cursor: pointer;" (click)="switchLanguage('en')">EN</a></li>
-        </ul>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+          <li><a style="cursor: pointer;" *ngIf="!isLoggedIn"><b>LogOut</b></a></li>
           <li><a style="cursor: pointer;" (click)="switchLanguage('hu')">HU</a></li>
             <li><a style="cursor: pointer;" (click)="switchLanguage('en')">EN</a></li>
         </ul>
