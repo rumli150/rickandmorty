@@ -11,7 +11,7 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
     </mat-form-field>
-    <button mat-button type="submit">Log in</button>
+    <button mat-button type="submit">{{mode}}</button>
     <br>
-    <button mat-button type="button" (click)="onChangeMode()">Swich to {{mode != 'login' ? 'SignUp' : 'Login'}}</button>
+    <button mat-button type="button" (click)="onChangeMode()">{{mode != 'login' ? 'SignUp' : 'Login'}}</button>
 </form>
