@@ -8,7 +8,8 @@ export class AuthService {
     isLoggedIn = false
     logger = new Subject<boolean>()
     users : User[] = [
-        new User('admin','admin')
+        new User('admin','admin'),
+        new User('bence','123'),
     ]
     constructor(
         private router : Router
