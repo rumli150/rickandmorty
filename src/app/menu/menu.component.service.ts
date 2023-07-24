@@ -1,8 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class menuComponentService {
+  darkMode = false
+  caretEvent = new Subject<boolean>()
+  darkModeSwitch = new Subject<boolean>()
+
   constructor() {}
-    caretEvent = new Subject<boolean>()
+  styleChange(){
+    this.darkMode = !this.darkMode
+    console.log(this.darkMode)
+    localStorage.setItem('darkMode',JSON.stringify(this.darkMode))
+    this.darkModeSwitch.next(this.darkMode)
+  }
+
+  dinamicModeChange(darkMode){
+    if(localStorage.getItem('darkMode') == 'true'){
+      darkMode = true
+    }
+    return darkMode
+  }
 }

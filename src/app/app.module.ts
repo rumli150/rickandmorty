@@ -33,6 +33,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { AuthComponent } from './auth/auth.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -78,7 +79,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatToolbarModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSlideToggleModule
   ],
   providers: [menuComponentService],
   bootstrap: [AppComponent]

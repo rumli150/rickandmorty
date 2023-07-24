@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './auth/auth.service';
+import { menuComponentService } from './menu/menu.component.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +10,11 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  darkMode = false
+  sub : Subscription
   constructor(private translate: TranslateService,
-    private authService : AuthService
+    private authService : AuthService,
+    private menuService : menuComponentService
     ){
     this.translate.setDefaultLang('en')
   }
@@ -18,6 +23,11 @@ export class AppComponent {
   }
 
   ngOnInit(){
+    this.darkMode = this.menuService.dinamicModeChange(this.darkMode)
+    this.menuService.darkModeSwitch.subscribe(dark => {
+      this.darkMode = dark
+    })
+
     const user = localStorage.getItem('userData')
     if(user){
       console.log('Van User!')

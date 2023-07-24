@@ -1,8 +1,12 @@
-<app-menu></app-menu>
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <router-outlet></router-outlet>
+<div class="full" [style.backgroundColor]="darkMode ? 'RGB(46, 46, 46)' : ''" [ngClass]="darkMode ? 'darkmode' : ''">
+        <app-menu></app-menu>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
         </div>
-    </div>
+</div>
+<div class="rest" [style.backgroundColor]="darkMode ? 'RGB(46, 46, 46)' : ''">
 </div>

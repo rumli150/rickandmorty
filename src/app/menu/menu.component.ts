@@ -16,6 +16,7 @@ export class MenuComponent {
   subtwo : Subscription
   menuIsOpen = false
   isLoggedIn = false
+  darkMode = false
 
   constructor(private menuService: menuComponentService,
     private translate: TranslateService,
@@ -24,6 +25,10 @@ export class MenuComponent {
     ){}
 
   ngOnInit(){
+    if(localStorage.getItem('darkMode') == 'true'){
+      this.menuService.darkMode = true
+      this.darkMode = true
+    }
     this.sub = this.menuService.caretEvent.subscribe(isOpen => {
       this.menuIsOpen = isOpen
     })
@@ -49,5 +54,8 @@ export class MenuComponent {
   onLogOut(){
     this.authService.logger.next(false)
     this.router.navigate(['auth'])
+  }
+  onChangeStyle(){
+    this.menuService.styleChange()
   }
 }
