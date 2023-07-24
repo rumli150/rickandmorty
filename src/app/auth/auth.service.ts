@@ -10,15 +10,9 @@ export class AuthService {
     users : User[] = [
         new User('admin','admin')
     ]
-    sub : Subscription
     constructor(
         private router : Router
     ) { }
-    ngOnInit(){
-        this.sub = this.logger.subscribe(state => {
-            this.isLoggedIn = state
-        })
-    }
     
     authCheck(user : User){
         let i = 0
@@ -32,14 +26,12 @@ export class AuthService {
                 this.logger.next(true)
                 this.isLoggedIn = true
                 this.router.navigate(['home'])
+                localStorage.setItem('userData', JSON.stringify(user))
             }
             i++
         }
         if(!end){
             console.log("sikertelen bejelentkezés")
         }
-    }
-    ngOnDestroy(){
-
     }
 }

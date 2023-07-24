@@ -27,7 +27,10 @@ export class MenuComponent {
     this.sub = this.menuService.caretEvent.subscribe(isOpen => {
       this.menuIsOpen = isOpen
     })
-    this.subtwo =this.authService.logger.subscribe(state =>{
+    if(this.authService.isLoggedIn){
+      this.isLoggedIn = true
+    }
+    this.subtwo = this.authService.logger.subscribe(state =>{
       this.isLoggedIn = state
       if(this.isLoggedIn){
         console.log("Bejelentkezve")

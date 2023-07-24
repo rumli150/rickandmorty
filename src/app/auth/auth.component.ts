@@ -25,14 +25,20 @@ export class AuthComponent {
       'username' : new FormControl(null),
       'password' : new FormControl(null)
     })
+    localStorage.removeItem('userData')
+    this.authService.isLoggedIn = false
+    this.authService.logger.next(false)
+    if(this.authService.isLoggedIn){
+      this.LoggedIn = true
+    }
     this.authService.logger.subscribe(state => {
       this.LoggedIn = state
     })
-      this.LoggedIn = this.authService.isLoggedIn
       if(this.LoggedIn){
         console.log("You are currently logged in")
       }else{
         console.log("You are currently NOT logged in")
+        // localStorage.removeItem('userData')
       }
   }
 
