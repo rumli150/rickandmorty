@@ -33,6 +33,7 @@ export class AuthService {
         }
         if(!end){
             console.log("sikertelen bejelentkezés")
+            alert("Rossz felhasználónév vagy jelszó")
         }
     }
 }

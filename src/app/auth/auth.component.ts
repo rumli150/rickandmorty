@@ -44,9 +44,17 @@ export class AuthComponent {
 
   onSubmit(){
     if(this.mode == 'login'){
-      console.log('ey')
-      let user = new User(this.loginForm.value.username, this.loginForm.value.password)
-      this.authService.authCheck(user)
+      if(!this.loginForm.value.username){
+        alert('Kérem adjon meg egy felhasználónevet')
+      }else if(!this.loginForm.value.password){
+        alert('Kérem adjon meg egy jelszót')
+      }else{
+        let user = new User(this.loginForm.value.username, this.loginForm.value.password)
+        this.authService.authCheck(user)
+        this.loginForm.reset()
+      }
+
+      
     }
   }
   onChangeMode(){
