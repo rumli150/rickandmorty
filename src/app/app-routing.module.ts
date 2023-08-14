@@ -14,7 +14,7 @@ import { EpisodeProfileComponent } from './episode-list/episode-profile/episode-
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuardService } from './shared/auth.guard.service';
 
-const routes: Routes = [
+export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuardService]},
   {path: 'characters', component: CharacterListComponent, canActivate: [AuthGuardService]},

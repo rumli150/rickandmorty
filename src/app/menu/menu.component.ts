@@ -48,8 +48,8 @@ export class MenuComponent {
     this.translate.use(language)
   }
   ngOnDestroy(){
-    this.sub.unsubscribe()
-    this.subtwo.unsubscribe()
+    this.sub?.unsubscribe()
+    this.subtwo?.unsubscribe()
   }
   onLogOut(){
     this.authService.logger.next(false)
