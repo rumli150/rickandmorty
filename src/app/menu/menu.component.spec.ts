@@ -41,19 +41,6 @@ describe('MenuComponent', () => {
         {path: '**', component: ErrorPageComponent},
       ];
 
-      const routes2: Routes = [
-        {path: '', redirectTo: '/home', pathMatch: 'full'},
-        {path: 'home', component: HomeComponent, canActivate: [AuthGuardService]},
-        {path: 'characters', component: CharacterListComponent, canActivate: [AuthGuardService]},
-        {path: 'characters/:id', component: CharacterProfileComponent, canActivate: [ProfileGuardService]},
-        {path: 'locations', component: LocationListComponent, canActivate: [AuthGuardService]},
-        {path: 'locations/:id', component: LocationProfileComponent, canActivate: [AuthGuardService]},
-        {path: 'episodes', component: EpisodeListComponent, canActivate: [AuthGuardService]},
-        {path: 'episodes/:id', component: EpisodeProfileComponent, canActivate: [AuthGuardService]},
-        {path: 'auth', component: AuthComponent},
-        {path: '**', component: ErrorPageComponent},
-      ];
-
     beforeEach(waitForAsync(()=>{
         TestBed.configureTestingModule({
             declarations: [
@@ -95,9 +82,6 @@ describe('MenuComponent', () => {
     it('shoud exist', () => {
         expect(component).toBeTruthy()
     })
-    xit('dark mode shoud be turned off by default', () => {
-        expect(component.darkMode).toBeFalsy()
-    })
     it('shoud switch between on/off', () => {
         localStorage.setItem('darkMode', 'true')
         component.ngOnInit()
@@ -128,6 +112,17 @@ describe('MenuComponent', () => {
         router.navigate(['asd'])
         tick()
         expect(location.path()).toBe('/error')
+    }))
+
+    xit('should switch darkmode button', fakeAsync(() => {
+        spyOn(component, 'onChangeStyle');
+
+	let button = fixture.debugElement.nativeElement.querySelector('MatSlideToggle');
+    button.click();
+
+	tick();
+
+	expect(component.onChangeStyle).toHaveBeenCalled();
     }))
     
 })

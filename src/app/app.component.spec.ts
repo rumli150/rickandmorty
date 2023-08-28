@@ -27,6 +27,12 @@ describe('AppComponent', () => {
     })
   );
 
+  it('should exist', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy()
+  })
+
   it('dark mode should be disabled at launch', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;

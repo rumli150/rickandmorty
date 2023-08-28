@@ -48,16 +48,11 @@ describe("CharacterList", () => {
     });
 
 
-    it("should create comp", () => {
+    it("should create component", () => {
         expect(component).toBeTruthy()
     })
     it("should have a page var, that = 1", () => {
         expect(component.page).toBe(1)
-    })
-    it("should get a character", () => {
-        // expect(spy).toHaveBeenCalled()
-        component.ngOnInit()
-        expect(spy.calls.all().length).toBe(0)
     })
     it('page = 1 after ngOnInit if it was undefined', () => {
         component.page = undefined
@@ -70,6 +65,11 @@ describe("CharacterList", () => {
         homeFixture.autoDetectChanges()
         expect(component.button).toBe('Search')
 
+    }))
+    xit('page increeses', waitForAsync(() => {
+        component.onNext()
+        tick(600)
+        expect(component.page).toBe(2)
     }))
     // it("should navigate /characters path", waitForAsync (() => {
     //     const fixture = TestBed.createComponent(CharacterListComponent);

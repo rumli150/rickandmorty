@@ -26,6 +26,10 @@ describe('Location List Component', () => {
         component = fixture.componentInstance
     })
 
+    it('should exist', ()=>{
+        expect(component).toBeTruthy()
+    })
+
     it('check filter form', () => {
         fixture.detectChanges();
     fixture.whenStable().then(() => {
