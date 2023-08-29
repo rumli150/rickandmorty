@@ -29,6 +29,13 @@ export class MenuComponent {
       this.menuService.darkMode = true
       this.darkMode = true
     }
+    if(localStorage.getItem('language') !== undefined){
+      // this.switchLanguage(localStorage.getItem('language'))
+      let lang = localStorage.getItem('language')
+      lang = lang.slice(1,-1)
+      console.log(lang)
+      this.translate.use(lang)
+    }
     this.sub = this.menuService.caretEvent.subscribe(isOpen => {
       this.menuIsOpen = isOpen
     })
@@ -46,6 +53,7 @@ export class MenuComponent {
   }
   switchLanguage(language: string){
     this.translate.use(language)
+    localStorage.setItem('language',JSON.stringify(language))
   }
   ngOnDestroy(){
     this.sub?.unsubscribe()
