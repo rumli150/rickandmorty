@@ -35,6 +35,7 @@ import {MatInputModule} from '@angular/material/input';
 import { AuthComponent } from './auth/auth.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ErrorPageModule } from './error-page/error-page.module';
+import { AuthenticationModule } from './auth/auth.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -58,8 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EpisodeListComponent,
     EpisodeListItemComponent,
     EpisodeProfileComponent,
-    CharacterEpisodeComponent,
-    AuthComponent
+    CharacterEpisodeComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     ErrorPageModule,
+    AuthenticationModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
