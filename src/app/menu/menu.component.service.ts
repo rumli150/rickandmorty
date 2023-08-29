@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class menuComponentService {
   darkMode = false
   caretEvent = new Subject<boolean>()

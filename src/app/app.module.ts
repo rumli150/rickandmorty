@@ -36,6 +36,7 @@ import { AuthComponent } from './auth/auth.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ErrorPageModule } from './error-page/error-page.module';
 import { AuthenticationModule } from './auth/auth.module';
+import { MainModule } from './home/home.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -44,8 +45,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    MenuComponent,
     CharacterListComponent,
     CharacterListItemComponent,
     DropdownDirective,
@@ -68,6 +67,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     ErrorPageModule,
+    MainModule,
     AuthenticationModule,
     TranslateModule.forRoot({
       loader: {
