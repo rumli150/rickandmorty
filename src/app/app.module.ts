@@ -34,6 +34,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { AuthComponent } from './auth/auth.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ErrorPageModule } from './error-page/error-page.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -47,7 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CharacterListComponent,
     CharacterListItemComponent,
     DropdownDirective,
-    ErrorPageComponent,
+    
     ShortenPipe,
     CharacterProfileComponent,
     LocationListComponent,
@@ -66,6 +67,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ErrorPageModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
