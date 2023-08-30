@@ -5,6 +5,7 @@ import { Character } from 'src/app/character-list/character.model';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
+  standalone: true,
   selector: 'app-resident',
   templateUrl: './resident.component.html',
   styleUrls: ['./resident.component.css'],

@@ -3,9 +3,11 @@ import { SharedModule } from '../shared/shared.module';
 import { EpisodeListItemComponent } from './episode-list-item/episode-list-item.component';
 import { EpisodeListComponent } from './episode-list.component';
 import { EpisodeProfileComponent } from './episode-profile/episode-profile.component';
+import { ResidentComponent } from '../location-list/location-profile/resident/resident.component';
 @NgModule({
     imports: [
-      SharedModule
+      SharedModule,
+      ResidentComponent,
     ],
     declarations: [
         EpisodeListComponent,
