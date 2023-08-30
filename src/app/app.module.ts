@@ -39,6 +39,7 @@ import { AuthenticationModule } from './auth/auth.module';
 import { MainModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { CharacterModule } from './character-list/character.module';
+import { EpisodeModule } from './episode-list/episode.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -51,9 +52,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     LocationListItemComponent,
     LocationProfileComponent,
     ResidentComponent,
-    EpisodeListComponent,
-    EpisodeListItemComponent,
-    EpisodeProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +60,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MainModule,
     AuthenticationModule,
     BrowserAnimationsModule,
-    CharacterModule
+    CharacterModule,
+    EpisodeModule
   ],
   providers: [menuComponentService],
   bootstrap: [AppComponent]
