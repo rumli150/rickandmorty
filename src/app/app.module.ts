@@ -37,6 +37,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ErrorPageModule } from './error-page/error-page.module';
 import { AuthenticationModule } from './auth/auth.module';
 import { MainModule } from './home/home.module';
+import { SharedModule } from './shared/shared.module';
+import { CharacterModule } from './character-list/character.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -45,12 +47,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    CharacterListComponent,
-    CharacterListItemComponent,
-    DropdownDirective,
-    
-    ShortenPipe,
-    CharacterProfileComponent,
     LocationListComponent,
     LocationListItemComponent,
     LocationProfileComponent,
@@ -58,32 +54,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     EpisodeListComponent,
     EpisodeListItemComponent,
     EpisodeProfileComponent,
-    CharacterEpisodeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
     ErrorPageModule,
     MainModule,
     AuthenticationModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      }
-    }),
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSlideToggleModule
+    CharacterModule
   ],
   providers: [menuComponentService],
   bootstrap: [AppComponent]
