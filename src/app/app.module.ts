@@ -40,6 +40,7 @@ import { MainModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { CharacterModule } from './character-list/character.module';
 import { EpisodeModule } from './episode-list/episode.module';
+import { LocationModule } from './location-list/location.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -48,9 +49,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    LocationListComponent,
-    LocationListItemComponent,
-    LocationProfileComponent,
     ResidentComponent,
   ],
   imports: [
@@ -61,7 +59,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthenticationModule,
     BrowserAnimationsModule,
     CharacterModule,
-    EpisodeModule
+    EpisodeModule,
+    LocationModule,
   ],
   providers: [menuComponentService],
   bootstrap: [AppComponent]
