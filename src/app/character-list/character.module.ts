@@ -4,11 +4,11 @@ import { CharacterListComponent } from './character-list.component';
 import { CharacterProfileComponent } from './character-profile/character-profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { CharacterEpisodeComponent } from './character-profile/character-episode/character-episode.component';
-import { RouterModule } from '@angular/router';
+import { CharacterRoutingModule } from './character-routing.module';
 @NgModule({
     imports: [
       SharedModule,
-      RouterModule
+      CharacterRoutingModule
     ],
     declarations: [CharacterListComponent, CharacterProfileComponent, CharacterListItemComponent, 
       CharacterEpisodeComponent,
