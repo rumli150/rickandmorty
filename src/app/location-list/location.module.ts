@@ -4,10 +4,12 @@ import { LocationListItemComponent } from './location-list-item/location-list-it
 import { LocationListComponent } from './location-list.component';
 import { LocationProfileComponent } from './location-profile/location-profile.component';
 import { ResidentComponent } from './location-profile/resident/resident.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
     imports: [
       SharedModule,
       ResidentComponent,
+      RouterModule
     ],
     declarations: [
         LocationListComponent,

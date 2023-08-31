@@ -61,6 +61,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CharacterModule,
     EpisodeModule,
     LocationModule,
+    AppRoutingModule
   ],
   providers: [menuComponentService],
   bootstrap: [AppComponent]

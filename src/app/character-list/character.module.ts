@@ -4,12 +4,15 @@ import { CharacterListComponent } from './character-list.component';
 import { CharacterProfileComponent } from './character-profile/character-profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { CharacterEpisodeComponent } from './character-profile/character-episode/character-episode.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
     imports: [
-      SharedModule
+      SharedModule,
+      RouterModule
     ],
     declarations: [CharacterListComponent, CharacterProfileComponent, CharacterListItemComponent, 
-      CharacterEpisodeComponent],
+      CharacterEpisodeComponent,
+    ],
     exports: [CharacterListComponent, CharacterProfileComponent, CharacterListItemComponent, 
       CharacterEpisodeComponent],
     providers : []

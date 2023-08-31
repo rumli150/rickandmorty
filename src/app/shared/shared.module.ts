@@ -24,7 +24,6 @@ import { DropdownDirective } from './dropdown.directive';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -45,7 +44,6 @@ import { DropdownDirective } from './dropdown.directive';
   ],
   exports: [
     CommonModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
